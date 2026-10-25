@@ -3,6 +3,14 @@ Description video
 
 https://www.loom.com/share/765e56c2dfcf4d03874446d4ac481a1f
 
+Group Name 
+Lina temam ctc-491-26
+Bereket Kasahun CTC-1279-26
+Mina ezedin  CTC-838-26
+Robel G/heredited CTC-4356-26
+Ruqiya Kassew CTC-3171-26
+Hana Berhe  CTC-1460-26
+
 
 Defensive Active Directory attack-path pipeline.
 
