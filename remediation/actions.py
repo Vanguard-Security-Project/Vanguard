@@ -46,6 +46,7 @@ def apply_to_graph(graph, decision):
         "notes": list(graph.get("notes", [])),
     }
 
+    
     return new_graph, ActionResult(
         kind=chosen["kind"],
         principal=ctx.get("principal", ""),
