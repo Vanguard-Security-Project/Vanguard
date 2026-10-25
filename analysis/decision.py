@@ -137,3 +137,4 @@ def decide(finding):
 
 def decide_batch(findings):
     return [decide(f) for f in findings]
+
