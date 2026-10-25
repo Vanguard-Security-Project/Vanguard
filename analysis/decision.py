@@ -70,6 +70,16 @@ FIXES = [
         "ps_rollback": "# restore SD from backup",
     },
     {
+        "id": "remove_owns",
+        "matches": ["Owns"],
+        "kind": "RemoveOwnership",
+        "blast_radius": "medium",
+        "ps_apply": ('$acl = Get-Acl "AD:{target_dn}"; '
+                     '$acl.SetOwner([System.Security.Principal.NTAccount]"Domain Admins"); '
+                     'Set-Acl "AD:{target_dn}" $acl'),
+        "ps_rollback": "# restore original owner from backup",
+    },
+    {
         "id": "remove_unconstrained_delegation",
         "matches": ["AllowedToDelegate"],
         "kind": "RemoveDelegation",
