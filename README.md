@@ -1,5 +1,7 @@
 # Vanguard
+Description video
 
+https://www.loom.com/share/765e56c2dfcf4d03874446d4ac481a1f
 Defensive Active Directory attack-path pipeline.
 
 SCAN → ANALYZE → FIX → RE-ATTACK → VERIFY
