@@ -16,6 +16,7 @@ _REMOVES = {
     "RemoveDaclAce":    {"GenericAll", "GenericWrite", "WriteDacl",
                          "WriteOwner", "ForceChangePassword", "AddMember",
                          "AllExtendedRights", "GetChanges", "GetChangesAll"},
+    "RemoveOwnership":  {"Owns"},
     "RemoveDelegation": {"AllowedToDelegate", "AllowedToAct"},
     "RemoveRBCD":       {"RBCD"},
 }
