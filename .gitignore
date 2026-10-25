@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.db
+*.sqlite
+.env
+data/
+plans/
+evidence/
+scripts/generated/
+vanguard.db
+evidence/
+scripts/
+plans/
+vanguard-report.json

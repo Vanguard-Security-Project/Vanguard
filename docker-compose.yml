@@ -1,0 +1,43 @@
+services:
+  neo4j:
+    image: neo4j:5.24-community
+    container_name: vanguard-neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: "neo4j/vanguard-local"
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 1G
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:7474 >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vanguard-backend
+    ports:
+      - "8000:8000"
+    environment:
+      VANGUARD_NEO4J_URI: "bolt://neo4j:7687"
+      VANGUARD_NEO4J_USER: "neo4j"
+      VANGUARD_NEO4J_PASS: "vanguard-local"
+      VANGUARD_DB_URL: "sqlite:////data/vanguard.db"
+      VANGUARD_SCRIPTS_DIR: "/data/scripts"
+      VANGUARD_EVIDENCE_DIR: "/data/evidence"
+    volumes:
+      - backend_data:/data
+    depends_on:
+      neo4j:
+        condition: service_healthy
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000
+
+volumes:
+  neo4j_data:
+  backend_data:
